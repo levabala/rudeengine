@@ -41,6 +41,15 @@ impl Distribution<Point<f32>> for Standard {
     }
 }
 
+impl Point<f32> {
+    fn floor(&self) -> Point<i32> {
+        Point {
+            x: self.x as i32,
+            y: self.y as i32,
+        }
+    }
+}
+
 fn main() {
     let p1 = random::<Point<i32>>();
     let p2 = random::<Point<i32>>();
@@ -48,14 +57,8 @@ fn main() {
     let p3 = random::<Point<f32>>();
     let p4 = random::<Point<f32>>();
 
+    let p5 = p4.floor();
+
     let c1 = p1 == p2;
     let c2 = p3 == p4;
-
-    // let p1 = Point::generate();
-
-    // let p2 = Point::generate();
-
-    // let are_they_equal = p1.equal(p2);
-
-    // println!("Hello, world! {}", are_they_equal);
 }
